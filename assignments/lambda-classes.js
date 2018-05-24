@@ -24,8 +24,15 @@ class Instructor extends Person{
     grade(student, subject){
         return `${student.name} receives a perfect score on ${subject}.`;
     };
-    points(){
-        
+    points(grade){
+        if(Math.random()>0.4999) {
+          // console.log(grade + Math.floor(Math.random()*25))
+            return `${grade + Math.floor(Math.random()*25)}`
+        }
+        else {
+          // console.log(grade - Math.floor(Math.random()*25))
+            return `${grade + Math.floor(Math.random()*25)}`
+        }
     }
 }
 
@@ -47,6 +54,14 @@ class Student extends Person{
     };
     sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}.`
+    }
+    graduate(){
+        if (this.grade >= 70) {
+            return `You will now be given de strength of de bleck pentha`
+        }
+        else {
+            return `You're a complete and total failure. How dare you mock the son of a shepard. Have you no shame? No pride?`
+        }
     }
 }
 
@@ -105,3 +120,5 @@ const fred = new Instructor({
 
   console.log(zed.standup('CS11'))
   console.log(zed.debugCode(kled, 'food'))
+  console.log(zed.points(kled.grade))
+  console.log(kled.graduate(zed.points))  
